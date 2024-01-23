@@ -18,19 +18,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def updete
+  def update
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
 
-  private
+    private
 
-  def book_params
-    params.require(:book).permit(:image, :title, :body)
-  end
+    def book_params
+      params.require(:book).permit(:image, :title, :body)
+    end
 
-  def user_params
-    params.require(:user).permit(:name, :profile_image)
-  end
+    def user_params
+      params.require(:user).permit(:name, :introduction, :profile_image)
+    end
 end
