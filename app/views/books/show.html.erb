@@ -1,6 +1,4 @@
-<head>
   <script src="https://kit.fontawesome.com/076ca8d248.js" crossorigin="anonymous"></script>
-</head>
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -54,7 +52,8 @@
                   <% end %>
               </td>
               <td><%= @books.body %></td>
-              <td></td>
+              <td><%= link_to "Edit", edit_book_path(@books.id) %></td>
+              <td><%= link_to "Destroy", book_path(@books.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
             </tr>
         </tbody>
       </table>
