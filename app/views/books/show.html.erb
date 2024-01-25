@@ -1,3 +1,6 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <div class="container">
   <dic class="row">
     <%= render 'user', user: @user, book: @book %>
@@ -18,8 +21,16 @@
                     <% end %>
                 </td>
                 <td><%= @books.body %></td>
-                <td><%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %></td>
-                <td><%= link_to "Destroy", book_path(@books.id), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+                <td>
+                  <% if @book.user == current_user %>
+                    <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if @book.user == current_user %>
+                    <%= link_to "Destroy", book_path(@books.id), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} %>
+                  <% end %>
+                </td>
               </tr>
           </tbody>
         </table>
