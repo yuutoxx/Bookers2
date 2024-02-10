@@ -15,6 +15,11 @@
         </tr>
       </tbody>
     </table>
+    <% if user.email != "guest@example.com" %>
+      <div class="row">
+        <%= link_to "",edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+      </div>
+    <% end %>
     <div class="row">
       <%= link_to  edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
         <i class="fa-solid fa-user-gear"></i>
